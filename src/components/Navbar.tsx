@@ -27,9 +27,9 @@ export default function Navbar() {
     <nav
       role="navigation"
       aria-label="Main navigation"
-      className="fixed inset-x-0 top-0 z-[100] border-b border-border bg-[var(--nav-blur)] backdrop-blur-[16px] transition-colors duration-300"
+      className="fixed inset-x-0 top-0 z-100 border-b border-border bg-(--nav-blur) backdrop-blur-lg transition-colors duration-300"
     >
-      <div className="mx-auto flex h-16 max-w-[1200px] items-center justify-between px-8 max-md:px-5">
+      <div className="mx-auto flex h-16 max-w-300 items-center justify-between px-8 max-md:px-5">
         <a
           href="#hero"
           onClick={(e) => { e.preventDefault(); scrollTo("hero"); }}
@@ -67,7 +67,7 @@ export default function Navbar() {
             Contact
           </a>
           <button
-            className="ml-2 flex h-[38px] w-[38px] items-center justify-center rounded-[10px] border border-border bg-surface text-base text-muted transition-colors duration-300 hover:bg-border hover:text-text"
+            className="ml-2 flex h-9.5 w-9.5 items-center justify-center rounded-[10px] border border-border bg-surface text-base text-muted transition-colors duration-300 hover:bg-border hover:text-text"
             onClick={toggleTheme}
             aria-label="Toggle dark/light mode"
             suppressHydrationWarning

@@ -76,13 +76,13 @@ export default function Testimonials() {
     <section
       id="testimonials"
       aria-label="Testimonials"
-      className="px-8 py-[100px] max-md:px-5 max-md:py-[72px]"
+      className="px-8 py-25 max-md:px-5 max-md:py-18"
     >
-      <div className="mx-auto max-w-[1200px]">
+      <div className="mx-auto max-w-300">
         <div className="mb-3 font-mono text-[0.72rem] tracking-[0.08em] text-accent">
           // social proof
         </div>
-        <h2 className="mb-4 font-head text-[clamp(1.8rem,4vw,2.8rem)] font-bold leading-[1.15] tracking-[-0.025em]">
+        <h2 className="mb-4 font-head text-[clamp(1.8rem,4vw,2.8rem)] font-bold leading-[1.15] tracking-tight">
           What colleagues say
         </h2>
 
@@ -96,7 +96,7 @@ export default function Testimonials() {
           onTouchEnd={onTouchEnd}
         >
           <div
-            className="flex transition-transform duration-[500ms] ease-in-out"
+            className="flex transition-transform duration-500 ease-in-out"
             style={{ transform: `translateX(-${current * 100}%)` }}
           >
             {testimonials.map((t) => (
@@ -131,7 +131,7 @@ export default function Testimonials() {
                   key={i}
                   className={`h-1.5 rounded-full bg-faint transition-all duration-300 ${
                     i === current
-                      ? "w-[18px] rounded-[3px] bg-accent"
+                      ? "w-4.5 rounded-[3px] bg-accent"
                       : "w-1.5"
                   }`}
                 />
