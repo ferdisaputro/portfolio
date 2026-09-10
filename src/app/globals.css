@@ -1,0 +1,59 @@
+@import "tailwindcss";
+
+:root {
+  --bg:        #0A0F1E;
+  --bg2:       #0F1629;
+  --surface:   rgba(255,255,255,0.04);
+  --border:    rgba(255,255,255,0.08);
+  --accent:    #6366F1;
+  --accent2:   #818CF8;
+  --text:      #F8FAFC;
+  --muted:     #94A3B8;
+  --faint:     #334155;
+  --green:     #34D399;
+  --teal:      #22D3EE;
+  --nav-blur:  rgba(10,15,30,0.75);
+}
+[data-theme="light"] {
+  --bg:        #F0F4FF;
+  --bg2:       #E8EDFF;
+  --surface:   rgba(99,102,241,0.06);
+  --border:    rgba(99,102,241,0.15);
+  --text:      #0F172A;
+  --muted:     #475569;
+  --faint:     #CBD5E1;
+  --nav-blur:  rgba(240,244,255,0.80);
+}
+
+@theme inline {
+  --color-bg:      var(--bg);
+  --color-bg2:     var(--bg2);
+  --color-surface: var(--surface);
+  --color-border:  var(--border);
+  --color-accent:  var(--accent);
+  --color-accent2: var(--accent2);
+  --color-text:    var(--text);
+  --color-muted:   var(--muted);
+  --color-faint:   var(--faint);
+  --color-green:   var(--green);
+  --color-teal:    var(--teal);
+  --font-head: 'Space Grotesk', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+@theme {
+  --animate-badge-pulse: badge-pulse 2s infinite;
+  @keyframes badge-pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.8); }
+  }
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  overflow-x: hidden;
+  transition: color 300ms;
+}
