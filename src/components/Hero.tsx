@@ -1,3 +1,7 @@
+"use client";
+
+import { scrollTo } from "@/lib/scroll";
+
 export default function Hero() {
   return (
     <section
@@ -29,6 +33,7 @@ export default function Hero() {
         <div className="mb-16 flex flex-wrap items-center gap-3 max-[480px]:flex-col max-[480px]:items-start">
           <a
             href="#projects"
+            onClick={(e) => { e.preventDefault(); scrollTo("projects"); }}
             className="inline-flex items-center gap-2 rounded-[10px] bg-accent px-6 py-3 text-[0.9rem] font-semibold text-white transition-[background,transform,box-shadow] duration-300 hover:translate-y-px hover:bg-accent2 hover:shadow-[0_8px_30px_rgba(99,102,241,0.35)]"
           >
             <svg
@@ -45,6 +50,7 @@ export default function Hero() {
           </a>
           <a
             href="#contact"
+            onClick={(e) => { e.preventDefault(); scrollTo("contact"); }}
             className="inline-flex items-center gap-2 rounded-[10px] border border-border bg-surface px-6 py-3 text-[0.9rem] font-medium text-text transition-[background,border-color,transform] duration-300 hover:-translate-y-px hover:border-accent hover:bg-border"
           >
             Let&apos;s talk

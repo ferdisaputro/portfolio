@@ -32,6 +32,7 @@ export default function RootLayout({
     <html
       lang="en"
       data-theme="dark"
+      style={{ scrollPaddingTop: "4rem" }}
       className={`scroll-smooth ${spaceGrotesk.variable} ${inter.variable} ${jetbrainsMono.variable}`}
     >
       <head>

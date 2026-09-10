@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { scrollTo } from "@/lib/scroll";
 
 export default function Navbar() {
   const [theme, setTheme] = useState<"dark" | "light">("dark");
@@ -31,6 +32,7 @@ export default function Navbar() {
       <div className="mx-auto flex h-16 max-w-[1200px] items-center justify-between px-8 max-md:px-5">
         <a
           href="#hero"
+          onClick={(e) => { e.preventDefault(); scrollTo("hero"); }}
           className="text-base font-bold tracking-[-0.02em] text-text font-head"
         >
           Alex<span className="text-accent">.</span>dev
@@ -38,24 +40,28 @@ export default function Navbar() {
         <div className="flex items-center gap-2">
           <a
             href="#projects"
+            onClick={(e) => { e.preventDefault(); scrollTo("projects"); }}
             className="hidden md:inline-flex rounded-lg px-3.5 py-1.5 text-sm font-medium text-muted transition-colors duration-300 hover:bg-surface hover:text-text"
           >
             Projects
           </a>
           <a
             href="#about"
+            onClick={(e) => { e.preventDefault(); scrollTo("about"); }}
             className="hidden md:inline-flex rounded-lg px-3.5 py-1.5 text-sm font-medium text-muted transition-colors duration-300 hover:bg-surface hover:text-text"
           >
             About
           </a>
           <a
             href="#experience"
+            onClick={(e) => { e.preventDefault(); scrollTo("experience"); }}
             className="hidden md:inline-flex rounded-lg px-3.5 py-1.5 text-sm font-medium text-muted transition-colors duration-300 hover:bg-surface hover:text-text"
           >
             Experience
           </a>
           <a
             href="#contact"
+            onClick={(e) => { e.preventDefault(); scrollTo("contact"); }}
             className="hidden md:inline-flex rounded-lg px-3.5 py-1.5 text-sm font-medium text-muted transition-colors duration-300 hover:bg-surface hover:text-text"
           >
             Contact
