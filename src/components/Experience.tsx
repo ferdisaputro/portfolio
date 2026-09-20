@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useCallback, useEffect, useRef } from "react";
+import { useLenis } from "lenis/react";
 
 const experiences = [
   {
@@ -78,26 +79,46 @@ const experiences = [
   },
 ];
 
+function easeOutCubic(t: number) {
+  return 1 - Math.pow(1 - t, 3);
+}
+
+const STAGGER = 0;
+const SETTLE = 0.70;
+const SLIDE = 200;
+
 export default function Experience() {
-  const containerRef = useRef<HTMLDivElement>(null);
+  const itemRefs = useRef<(HTMLDivElement | null)[]>([]);
+
+  itemRefs.current = new Array(experiences.length);
+
+  const updateItems = useCallback(() => {
+    if (typeof window === "undefined") return;
+    const vh = window.innerHeight;
+    itemRefs.current.forEach((el, i) => {
+      if (!el) return;
+      const rect = el.getBoundingClientRect();
+      let p = (vh - rect.top) / (vh * SETTLE);
+
+      p = Math.max(0, p - i * STAGGER);
+      p = Math.min(1, p);
+      p = easeOutCubic(p);
+
+      el.style.transform = `translateX(${(1 - p) * SLIDE}px)`;
+      el.style.opacity = String(p);
+    });
+  }, []);
+
+  useLenis(updateItems, [updateItems], 0);
 
   useEffect(() => {
-    // const items = containerRef.current?.querySelectorAll(":scope > div");
-    // if (!items) return;
-    // const observer = new IntersectionObserver(
-    //   (entries) => {
-    //     entries.forEach((entry) => {
-    //       if (entry.isIntersecting) {
-    //         entry.target.setAttribute("data-visible", "");
-    //         observer.unobserve(entry.target);
-    //       }
-    //     });
-    //   },
-    //   { threshold: 0.15 }
-    // );
-    // items.forEach((item) => observer.observe(item));
-    // return () => observer.disconnect();
-  }, []);
+    const frame = requestAnimationFrame(updateItems);
+    window.addEventListener("resize", updateItems);
+    return () => {
+      cancelAnimationFrame(frame);
+      window.removeEventListener("resize", updateItems);
+    };
+  }, [updateItems]);
 
   return (
     <section
@@ -117,13 +138,21 @@ export default function Experience() {
           different edge.
         </p>
 
-        <div className="relative pl-10" ref={containerRef}>
+        <div className="relative pl-10">
           <div className="absolute bottom-0 left-2.5 top-2 w-px bg-[linear-gradient(to_bottom,var(--accent),transparent)]" />
 
-          {experiences.map((exp) => (
+          {experiences.map((exp, i) => (
             <div
               key={exp.period}
-              className="relative mb-12 opacity-0 translate-y-5 transition-[opacity,transform] duration-500 ease-[ease] data-visible:translate-y-0 data-visible:opacity-100"
+              ref={(el) => {
+                itemRefs.current[i] = el;
+              }}
+              style={{
+                opacity: 0,
+                transform: `translateX(${SLIDE}px)`,
+                willChange: "transform, opacity",
+              }}
+              className="relative mb-12"
             >
               <div className="absolute -left-8.5 top-1 h-3 w-3 rounded-full bg-accent shadow-[0_0_0_4px_rgba(99,102,241,0.15)]" />
               <div className="mb-1.5 font-mono text-[0.72rem] tracking-[0.04em] text-accent">
