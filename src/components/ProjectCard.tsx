@@ -32,14 +32,14 @@ export default function ProjectCard({ project, onClick }: Props) {
         }
       }}
     >
-      <div className="relative h-[200px] overflow-hidden bg-bg2">
+      <div className="relative h-50 overflow-hidden bg-bg2">
         <div
-          className={`flex h-full w-full items-center justify-center bg-[linear-gradient(135deg,${project.gradient.split(" ")[0].replace("from-", "")},${project.gradient.split(" ")[1].replace("to-", "")})] text-5xl transition-transform duration-[400ms] ease-in-out group-hover:scale-[1.08]`}
+          className={`flex h-full w-full items-center justify-center bg-[linear-gradient(135deg,${project.gradient.split(" ")[0].replace("from-", "")},${project.gradient.split(" ")[1].replace("to-", "")})] text-5xl transition-transform duration-400 ease-in-out group-hover:scale-[1.08]`}
         >
           {project.emoji}
         </div>
         <div className="absolute inset-0 flex items-end bg-[linear-gradient(to_top,rgba(10,15,30,0.85)_0%,transparent_60%)] p-5 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-          <p className="text-[0.82rem] leading-[1.5] text-muted">
+          <p className="text-[0.82rem] leading-normal text-muted">
             {project.description}
           </p>
         </div>
@@ -55,19 +55,19 @@ export default function ProjectCard({ project, onClick }: Props) {
           {project.tech.map((t) => (
             <span
               key={t.label}
-              className={`rounded-[5px] border px-2.5 py-[3px] font-mono text-[0.7rem] font-medium ${colorMap[t.color]}`}
+              className={`rounded-[5px] border px-2.5 py-0.75 font-mono text-[0.7rem] font-medium ${colorMap[t.color]}`}
             >
               {t.label}
             </span>
           ))}
         </div>
         <div className="flex gap-2.5">
-          <button className="inline-flex items-center gap-[5px] rounded-[7px] border border-accent bg-accent px-3.5 py-[7px] text-[0.8rem] font-medium text-white transition-all duration-300 hover:border-accent2 hover:bg-accent2">
+          <button className="inline-flex items-center gap-1.25 rounded-[7px] border border-accent bg-accent px-3.5 py-1.75 text-[0.8rem] font-medium text-white transition-all duration-300 hover:border-accent2 hover:bg-accent2">
             Case Study
           </button>
           <a
             href="#"
-            className="inline-flex items-center gap-[5px] rounded-[7px] border border-border px-3.5 py-[7px] text-[0.8rem] font-medium text-muted transition-all duration-300 hover:border-muted hover:text-text"
+            className="inline-flex items-center gap-1.25 rounded-[7px] border border-border px-3.5 py-1.75 text-[0.8rem] font-medium text-muted transition-all duration-300 hover:border-muted hover:text-text"
             aria-label="View code on GitHub"
           >
             <svg

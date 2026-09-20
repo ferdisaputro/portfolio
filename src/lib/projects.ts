@@ -133,4 +133,149 @@ export const projects: Project[] = [
     ],
     linkType: "case",
   },
+  {
+    id: 4,
+    title: "CodeLens — AI Code Review",
+    category: "ai",
+    emoji: "\uD83D\uDD0D",
+    gradient: "from-[#1a0840] to-[#200020]",
+    shortDescription:
+      "GitHub-integrated AI reviewer that provides context-aware feedback on PRs, flagging security, perf, and style issues.",
+    description:
+      "Automated PR reviews catching 34% more issues than manual review alone, adopted across 5 engineering teams.",
+    tech: [
+      { label: "TypeScript", color: "accent" },
+      { label: "LLM API", color: "accent" },
+      { label: "GitHub Actions", color: "teal" },
+      { label: "AST Parsing", color: "green" },
+    ],
+    problem:
+      "As our codebase scaled to 400k+ lines, manual PR reviews became a bottleneck \u2014 reviewers missed recurring security patterns and performance anti-patterns under time pressure.",
+    solution:
+      "Built a GitHub-integrated AI reviewer that parses PR diffs, builds an AST-level understanding of changes, and generates context-aware feedback via LLM. Includes a rule engine for organization-specific conventions.",
+    role: "Solo project \u2014 designed the AST parsing pipeline, the LLM prompting strategy, and the GitHub Actions integration.",
+    impact: [
+      "34% more issues caught compared to manual review alone (A/B tested)",
+      "Adopted by 5 engineering teams; 1,200+ PRs reviewed in 3 months",
+      "Average review turnaround from 4 hours \u2192 8 minutes",
+      "Zero false-positive security flags after prompt tuning iteration",
+    ],
+    linkType: "case",
+  },
+  {
+    id: 5,
+    title: "CodeLens — AI Code Review",
+    category: "ai",
+    emoji: "\uD83D\uDD0D",
+    gradient: "from-[#1a0840] to-[#200020]",
+    shortDescription:
+      "GitHub-integrated AI reviewer that provides context-aware feedback on PRs, flagging security, perf, and style issues.",
+    description:
+      "Automated PR reviews catching 34% more issues than manual review alone, adopted across 5 engineering teams.",
+    tech: [
+      { label: "TypeScript", color: "accent" },
+      { label: "LLM API", color: "accent" },
+      { label: "GitHub Actions", color: "teal" },
+      { label: "AST Parsing", color: "green" },
+    ],
+    problem:
+      "As our codebase scaled to 400k+ lines, manual PR reviews became a bottleneck \u2014 reviewers missed recurring security patterns and performance anti-patterns under time pressure.",
+    solution:
+      "Built a GitHub-integrated AI reviewer that parses PR diffs, builds an AST-level understanding of changes, and generates context-aware feedback via LLM. Includes a rule engine for organization-specific conventions.",
+    role: "Solo project \u2014 designed the AST parsing pipeline, the LLM prompting strategy, and the GitHub Actions integration.",
+    impact: [
+      "34% more issues caught compared to manual review alone (A/B tested)",
+      "Adopted by 5 engineering teams; 1,200+ PRs reviewed in 3 months",
+      "Average review turnaround from 4 hours \u2192 8 minutes",
+      "Zero false-positive security flags after prompt tuning iteration",
+    ],
+    linkType: "case",
+  },
+  {
+    id: 6,
+    title: "CodeLens — AI Code Review",
+    category: "ai",
+    emoji: "\uD83D\uDD0D",
+    gradient: "from-[#1a0840] to-[#200020]",
+    shortDescription:
+      "GitHub-integrated AI reviewer that provides context-aware feedback on PRs, flagging security, perf, and style issues.",
+    description:
+      "Automated PR reviews catching 34% more issues than manual review alone, adopted across 5 engineering teams.",
+    tech: [
+      { label: "TypeScript", color: "accent" },
+      { label: "LLM API", color: "accent" },
+      { label: "GitHub Actions", color: "teal" },
+      { label: "AST Parsing", color: "green" },
+    ],
+    problem:
+      "As our codebase scaled to 400k+ lines, manual PR reviews became a bottleneck \u2014 reviewers missed recurring security patterns and performance anti-patterns under time pressure.",
+    solution:
+      "Built a GitHub-integrated AI reviewer that parses PR diffs, builds an AST-level understanding of changes, and generates context-aware feedback via LLM. Includes a rule engine for organization-specific conventions.",
+    role: "Solo project \u2014 designed the AST parsing pipeline, the LLM prompting strategy, and the GitHub Actions integration.",
+    impact: [
+      "34% more issues caught compared to manual review alone (A/B tested)",
+      "Adopted by 5 engineering teams; 1,200+ PRs reviewed in 3 months",
+      "Average review turnaround from 4 hours \u2192 8 minutes",
+      "Zero false-positive security flags after prompt tuning iteration",
+    ],
+    linkType: "case",
+  },
+  {
+    id: 7,
+    title: "CodeLens — AI Code Review",
+    category: "ai",
+    emoji: "\uD83D\uDD0D",
+    gradient: "from-[#1a0840] to-[#200020]",
+    shortDescription:
+      "GitHub-integrated AI reviewer that provides context-aware feedback on PRs, flagging security, perf, and style issues.",
+    description:
+      "Automated PR reviews catching 34% more issues than manual review alone, adopted across 5 engineering teams.",
+    tech: [
+      { label: "TypeScript", color: "accent" },
+      { label: "LLM API", color: "accent" },
+      { label: "GitHub Actions", color: "teal" },
+      { label: "AST Parsing", color: "green" },
+    ],
+    problem:
+      "As our codebase scaled to 400k+ lines, manual PR reviews became a bottleneck \u2014 reviewers missed recurring security patterns and performance anti-patterns under time pressure.",
+    solution:
+      "Built a GitHub-integrated AI reviewer that parses PR diffs, builds an AST-level understanding of changes, and generates context-aware feedback via LLM. Includes a rule engine for organization-specific conventions.",
+    role: "Solo project \u2014 designed the AST parsing pipeline, the LLM prompting strategy, and the GitHub Actions integration.",
+    impact: [
+      "34% more issues caught compared to manual review alone (A/B tested)",
+      "Adopted by 5 engineering teams; 1,200+ PRs reviewed in 3 months",
+      "Average review turnaround from 4 hours \u2192 8 minutes",
+      "Zero false-positive security flags after prompt tuning iteration",
+    ],
+    linkType: "case",
+  },
+  {
+    id: 8,
+    title: "CodeLens — AI Code Review",
+    category: "ai",
+    emoji: "\uD83D\uDD0D",
+    gradient: "from-[#1a0840] to-[#200020]",
+    shortDescription:
+      "GitHub-integrated AI reviewer that provides context-aware feedback on PRs, flagging security, perf, and style issues.",
+    description:
+      "Automated PR reviews catching 34% more issues than manual review alone, adopted across 5 engineering teams.",
+    tech: [
+      { label: "TypeScript", color: "accent" },
+      { label: "LLM API", color: "accent" },
+      { label: "GitHub Actions", color: "teal" },
+      { label: "AST Parsing", color: "green" },
+    ],
+    problem:
+      "As our codebase scaled to 400k+ lines, manual PR reviews became a bottleneck \u2014 reviewers missed recurring security patterns and performance anti-patterns under time pressure.",
+    solution:
+      "Built a GitHub-integrated AI reviewer that parses PR diffs, builds an AST-level understanding of changes, and generates context-aware feedback via LLM. Includes a rule engine for organization-specific conventions.",
+    role: "Solo project \u2014 designed the AST parsing pipeline, the LLM prompting strategy, and the GitHub Actions integration.",
+    impact: [
+      "34% more issues caught compared to manual review alone (A/B tested)",
+      "Adopted by 5 engineering teams; 1,200+ PRs reviewed in 3 months",
+      "Average review turnaround from 4 hours \u2192 8 minutes",
+      "Zero false-positive security flags after prompt tuning iteration",
+    ],
+    linkType: "case",
+  },
 ];

@@ -11,6 +11,20 @@ function LenisStore() {
     setLenisInstance(lenis ?? null);
     return () => setLenisInstance(null);
   }, [lenis]);
+
+  // useLenis(
+  //   (instance) => {
+  //     console.log("lenis scroll:", {
+  //       scroll: instance.scroll,
+  //       progress: instance.progress,
+  //       velocity: instance.velocity,
+  //       isScrolling: instance.isScrolling,
+  //     });
+  //   },
+  //   [],
+  //   0
+  // );
+
   return null;
 }
 

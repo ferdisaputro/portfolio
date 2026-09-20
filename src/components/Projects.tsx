@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useCallback, useEffect } from "react";
+import { useLenis } from "lenis/react";
 import { projects } from "@/lib/projects";
 import ProjectCard from "./ProjectCard";
 import ProjectModal from "./ProjectModal";
@@ -14,14 +15,56 @@ const filters = [
 
 type Filter = (typeof filters)[number]["key"];
 
+function easeOutCubic(t: number) {
+  return 1 - Math.pow(1 - t, 3);
+}
+
+const STAGGER = 0;
+const SETTLE = 0.15;
+const SLIDE = 150;
+
 export default function Projects() {
   const [active, setActive] = useState<Filter>("all");
   const [modalProject, setModalProject] = useState<number | null>(null);
+  const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   const filtered =
     active === "all"
       ? projects
       : projects.filter((p) => p.category === active);
+
+  cardRefs.current = new Array(filtered.length);
+
+  const updateCards = useCallback(() => {
+    if (typeof window === "undefined") return;
+    const vh = window.innerHeight;
+    const settle = vh - vh * SETTLE;
+    cardRefs.current.forEach((el, i) => {
+      if (!el) return;
+      const rect = el.getBoundingClientRect();
+      let p = (settle - rect.top) / (settle + rect.height);
+      p = Math.max(0, p - i * STAGGER);
+      p = Math.min(1, p);
+      p = easeOutCubic(p);
+
+      console.log(p);
+      
+
+      el.style.transform = `translateY(${(1 - p) * SLIDE}px)`;
+      el.style.opacity = String(p);
+    });
+  }, []);
+
+  useLenis(updateCards, [updateCards], 0);
+
+  useEffect(() => {
+    const frame = requestAnimationFrame(updateCards);
+    window.addEventListener("resize", updateCards);
+    return () => {
+      cancelAnimationFrame(frame);
+      window.removeEventListener("resize", updateCards);
+    };
+  }, [updateCards, filtered]);
 
   return (
     <>
@@ -64,12 +107,23 @@ export default function Projects() {
           </div>
 
           <div className="grid grid-cols-[repeat(auto-fill,minmax(340px,1fr))] gap-6 max-md:grid-cols-1">
-            {filtered.map((p) => (
-              <ProjectCard
+            {filtered.map((p, i) => (
+              <div
                 key={p.id}
-                project={p}
-                onClick={() => setModalProject(p.id)}
-              />
+                ref={(el) => {
+                  cardRefs.current[i] = el;
+                }}
+                style={{
+                  opacity: 0,
+                  transform: `translateY(${SLIDE}px)`,
+                  willChange: "transform, opacity",
+                }}
+              >
+                <ProjectCard
+                  project={p}
+                  onClick={() => setModalProject(p.id)}
+                />
+              </div>
             ))}
           </div>
         </div>

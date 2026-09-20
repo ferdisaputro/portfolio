@@ -82,21 +82,21 @@ export default function Experience() {
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const items = containerRef.current?.querySelectorAll(":scope > div");
-    if (!items) return;
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.setAttribute("data-visible", "");
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.15 }
-    );
-    items.forEach((item) => observer.observe(item));
-    return () => observer.disconnect();
+    // const items = containerRef.current?.querySelectorAll(":scope > div");
+    // if (!items) return;
+    // const observer = new IntersectionObserver(
+    //   (entries) => {
+    //     entries.forEach((entry) => {
+    //       if (entry.isIntersecting) {
+    //         entry.target.setAttribute("data-visible", "");
+    //         observer.unobserve(entry.target);
+    //       }
+    //     });
+    //   },
+    //   { threshold: 0.15 }
+    // );
+    // items.forEach((item) => observer.observe(item));
+    // return () => observer.disconnect();
   }, []);
 
   return (
