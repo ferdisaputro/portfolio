@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import type { Project } from "@/lib/projects";
 
 const colorMap: Record<string, string> = {
@@ -62,9 +63,13 @@ export default function ProjectCard({ project, onClick }: Props) {
           ))}
         </div>
         <div className="flex gap-2.5">
-          <button className="inline-flex items-center gap-1.25 rounded-[7px] border border-accent bg-accent px-3.5 py-1.75 text-[0.8rem] font-medium text-white transition-all duration-300 hover:border-accent2 hover:bg-accent2">
+          <Link
+            href={`/project/${project.id}`}
+            onClick={(e) => e.stopPropagation()}
+            className="inline-flex items-center gap-1.25 rounded-[7px] border border-accent bg-accent px-3.5 py-1.75 text-[0.8rem] font-medium text-white transition-all duration-300 hover:border-accent2 hover:bg-accent2"
+          >
             Case Study
-          </button>
+          </Link>
           <a
             href="#"
             className="inline-flex items-center gap-1.25 rounded-[7px] border border-border px-3.5 py-1.75 text-[0.8rem] font-medium text-muted transition-all duration-300 hover:border-muted hover:text-text"
